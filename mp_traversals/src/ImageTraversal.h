@@ -50,7 +50,6 @@ namespace Traversals {
     class Iterator : std::iterator<std::forward_iterator_tag, Point> {
     public:
       Iterator();
-
       Iterator & operator++();
       Point operator*();
       bool operator!=(const Iterator &other);
@@ -58,10 +57,21 @@ namespace Traversals {
       /** @todo [Part 1] */
       /** add member functions if neccesary*/
 
+    bool wasVisited(Point pt);
+    void visitPoint(Point pt);
+    Iterator(const Point *pt);
+    Iterator(const PNG & png, const Point & start, double tolerance, add_function traversal_add, pop_function traversal_pop);
     private:
       /** @todo [Part 1] */
       /** add private members here if neccesary*/
       std::deque<Point> work_list;
+    Point cur;
+    const PNG  *image;
+    const Point * start_point;
+    double tolerance_;
+    add_function traversaladd;
+    pop_function  pop_traversal;
+     std::vector<std::vector<bool>> visited;
 
     };
 
@@ -83,5 +93,14 @@ namespace Traversals {
   private:
     /** @todo [Part 1] */
     /** add private members here if neccesary*/
+    const PNG  *image;
+    const Point * start_point;
+    double tolerance_;
+    add_function traversaladd;
+    pop_function  pop_traversal;
   };
 }
+
+
+
+//ALI

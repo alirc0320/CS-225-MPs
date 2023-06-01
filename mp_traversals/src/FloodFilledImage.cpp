@@ -18,6 +18,7 @@ using namespace cs225;
  */
 FloodFilledImage::FloodFilledImage(const PNG & png) {
   /** @todo [Part 2] */
+  picture = png;
 }
 
 /**
@@ -29,30 +30,26 @@ FloodFilledImage::FloodFilledImage(const PNG & png) {
  */
 void FloodFilledImage::addFloodFill(Traversals::ImageTraversal & traversal, ColorPicker & colorPicker) {
   /** @todo [Part 2] */
+  traverse.push_back(&traversal);
+  picker.push_back(&colorPicker);
 }
 
-/**
- * Creates an Animation of frames from the FloodFill operations added to this object.
- * 
- * Each FloodFill operation added by `addFloodFill` is executed based on the order
- * the operation was added.  This is done by:
- * 1. Visiting pixels within the image based on the order provided by the ImageTraversal iterator and
- * 2. Updating each pixel to a new color based on the ColorPicker
- * 
- * While applying the FloodFill to the image, an Animation is created by saving the image
- * after every `frameInterval` pixels are filled.  To ensure a smooth Animation, the first
- * frame is always the starting image and the final frame is always the finished image.
- * 
- * (For example, if `frameInterval` is `4` the frames are:
- *   - The initial frame
- *   - Then after the 4th pixel has been filled
- *   - Then after the 8th pixel has been filled
- *   - ...
- *   - The final frame, after all pixels have been filed)
- * @param frameInterval how often to save frames of the animation
- */ 
+
 Animation FloodFilledImage::animate(unsigned frameInterval) const {
   Animation animation;
-  /** @todo [Part 2] */
+  PNG copy = picture;
+  animation.addFrame(picture);
+  unsigned frame = 1;
+  for (const auto& traversal : traverse) {
+    for (const auto& pt : *traversal) {
+      copy.getPixel(pt.x, pt.y) = picker[frame % picker.size()]->getColor(pt.x, pt.y);
+      if (frame % frameInterval == 0) {
+        animation.addFrame(copy);
+      }
+      ++frame;
+    }
+  }
+  animation.addFrame(copy);
   return animation;
 }
+//Ali

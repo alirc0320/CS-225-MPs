@@ -62,5 +62,10 @@ class DisjointSets
      * @return number of nodes in the up-tree containing the element
      */
     int size(int elem);
+    
+        std::vector<int> elmnts;
 
 };
+
+
+//Ali 

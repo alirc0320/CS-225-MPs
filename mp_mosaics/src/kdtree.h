@@ -90,7 +90,12 @@ class KDTree
      * @todo This function is required for Part 1.
      * @param newPoints The vector of points to build your KDTree off of.
      */
-    KDTree(const vector<Point<Dim>>& newPoints);
+
+
+
+
+KDTree(const vector<Point<Dim>>& newPoints);
+KDTreeNode* Newtree(vector<Point<Dim>>& newP,int left, int right, int dimensions);
 
 
     /**
@@ -111,6 +116,7 @@ class KDTree
     /**
      * Destructor for KDTree.
      */
+     void destroy(KDTreeNode *sr);
     ~KDTree();
 
     /**
@@ -171,7 +177,7 @@ class KDTree
      * @return The closest point to a in the KDTree.
      */
     Point<Dim> findNearestNeighbor(const Point<Dim>& query) const;
-
+    Point<Dim> helper(const Point<Dim>& query, KDTreeNode * node, int depth) const;
     // functions used for grading:
 
     /**
@@ -286,7 +292,9 @@ bool smallerDimVal(const Point<Dim>& first, const Point<Dim>& second,
   */
 template <typename RandIter, typename Comparator>
 void select(RandIter begin, RandIter end, RandIter k, Comparator cmp);
-
+template <typename RandIter, typename Comparator, int Dim>
+RandIter pivot_partition(RandIter begin, RandIter end, RandIter pivot, Comparator comp);
 
 #include "kdtree.hpp"
 #include "kdtree_extras.hpp"
+//ALI

@@ -99,7 +99,7 @@ TEST_CASE("Image rotateColor(double) keeps the hue in the range 0..360", "[weigh
 }
 
 
-//
+
 // scale
 //
 TEST_CASE("Image scale(2.0) results in the correct width/height", "[weight=1][part=1]") {

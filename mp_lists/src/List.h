@@ -35,7 +35,7 @@ class List {
 
         /**
          * Constructs a ListNode with the given data.
-         * Implemented for you.
+         * Implemented for you
          * @see List-given.hpp
          */
         ListNode(const T & ndata);
@@ -65,6 +65,7 @@ class List {
      * Creates an empty List.
      * @see List.hpp
      */
+    
     List();
 
     /**
@@ -306,3 +307,4 @@ class List {
 // this includes all of the functions that are given to you
 // (i.e., the ones that you do not need to implement)
 #include "List-given.hpp"
+//ALI

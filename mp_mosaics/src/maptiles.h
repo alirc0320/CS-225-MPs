@@ -35,3 +35,4 @@ MosaicCanvas* mapTiles(SourceImage const& theSource,
 
 // TODO: move this comment back to inline above once someone figures out unidef-like real directive parsing
 // SOLUTION
+//ALI

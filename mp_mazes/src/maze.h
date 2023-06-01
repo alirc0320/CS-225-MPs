@@ -155,4 +155,27 @@ class SquareMaze
      */
     cs225::PNG* drawMazeWithSolution();
 
+
+
+
+
+
+     
+  private:
+  struct SquareCell {
+        bool right = true;
+        bool down = true;
+        
+    };
+  int width_;
+  int height_;
+  
+  std::vector<SquareCell> maze_;
+    std::vector<int> walls_;
+  // other private member variables and functions
+
+
 };
+
+
+//Ali

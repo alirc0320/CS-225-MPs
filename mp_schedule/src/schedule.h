@@ -12,8 +12,10 @@
 #include <fstream>
 #include <sstream>
 #include <set>
+using namespace std;
 
-typedef std::vector<std::vector<std::string> > V2D; 
+
+typedef vector<vector<string>> V2D;
 
 
 /**
